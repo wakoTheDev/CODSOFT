@@ -2,7 +2,7 @@
 python
 
 
-SIMLE PYTHON CALCULATOR
+SIMpLE PYTHON CALCULATOR
 
 
 This is a simple python calculator that takes user fed input and calculate then return the result
