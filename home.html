@@ -1,0 +1,28 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}" />
+    <link rel="stylesheet" href="{%static 'create.css'%}" />
+  </head>
+  <body>
+    <nav class="navbar nav">
+      <a href="{{'create'}}" class="anchor">
+        <article class="navigation-article">Add Contact</article>
+      </a>
+      <a href="{{'search'}}" class="anchor">
+        <article class="navigation-article">Search Contact</article>
+      </a>
+    </nav>
+    <section>
+      {% if numbers%} {%for number in numbers %}
+      <div class="contact_container">
+        <article>{{number.first_name}}</article>
+        <article>{{number.last_name}}</article>
+        <div>{{number.phone_number}}</div>
+        <input type="button" value="delete" onclick="{{'removed'}}"/>
+      </div>
+      {%endfor%} {% endif %}
+    </section>
+  </body>
+</html>

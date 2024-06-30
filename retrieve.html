@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{%static 'create.css'%}"
+   </head>
+  <body>
+    <form method="post" action="{{'search'}}">
+      {% csrf_token %}
+      <label for="Search-bar">Search:</label>
+      <input
+        type="search"
+        placeholder="Search by first name"
+        id="Search-bar"
+        name="Search-bar"
+      />
+    </form>
+    <section>
+      {% for message in messages%}
+      <p>{{message}}</p>
+      {% endfor %} {%if is_avilable%} {% for number in is_avilable%}
+      <div class="contact_container">
+        <article>{{number.first_name}}</article>
+        <article>{{number.last_name}}</article>
+        <div>{{number.phone_number}}</div>
+        <input type="button" value="delete" onclick="{{'removed'}}"/>
+      </div>
+      {%endfor%} {% endif %}
+    </section>
+  </body>
+</html>

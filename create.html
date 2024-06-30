@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/boostrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'create.css' %}" />
+    <title>new contact</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="h1">New contact</h1>
+      {%for message in messages%}
+      <p>{{message}}</p>
+      {% endfor %}
+      <form class="form-control form-text form" method="post">
+        {% csrf_token %}
+        <article class="article">
+          <label for="first">First name:</label>
+          <input type="text" name="first" id="first" />
+        </article>
+        <article class="article">
+          <label for="last">Last name:</label>
+          <input type="text" name="last" id="last" />
+        </article>
+        <article class="article">
+          <label for="phone-no">Phone:</label>
+          <input
+            type="number"
+            name="phone-no"
+            id="phone-no"
+            style="margin-left: 27px"
+          />
+        </article>
+        <article class="article">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            style="margin-left: 27px"
+          />
+        </article>
+        <article class="article">
+          <label for="address">Address:</label>
+          <textarea
+            id="address"
+            name="address"
+            style="margin-left: 15px; border-radius: 4px"
+          ></textarea>
+        </article>
+        <button type="submit" class="btn" onsubmit="{{'create'}}">Save</button>
+      </form>
+    </div>
+  </body>
+</html>
